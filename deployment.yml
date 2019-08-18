@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: express
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      containers:
+        - name: express
+          image: alibabaih/express
+          ports:
+            - name: http-port
+              containerPort: 3000
+#          volumeMounts:
+#            - name: jenkins-home
+#              mountPath: /var/jenkins_home
+#      volumes:
+#        - name: jenkins-home
+#          emptyDir: {}
